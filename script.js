@@ -15,19 +15,27 @@ const link = document.querySelector(".links");
 toggleBtn.addEventListener("click", function () {
   let linksContainerHeight = linksContainer.getBoundingClientRect().height;
   let linksHeight = link.getBoundingClientRect().height;
-  if (this.classList.contains("active")) {
-    this.classList.remove("active");
-  } else {
-    this.classList.add("active");
-  }
+
   //   then js for the links
-  if (linksContainerHeight == 0) {
+  if (linksContainerHeight == 0 && !this.classList.contains("active")) {
+    this.classList.add("active");
     linksContainer.style.height = `${linksHeight}px`;
     linksContainerHeight = linksHeight;
   } else if (linksContainerHeight > 0) {
+    this.classList.remove("active");
     linksContainer.style.height = `0px`;
     linksContainerHeight = 0;
   }
+
+  // cek for navbar if bigger than 700px
+  window.addEventListener("resize", function () {
+    if (this.innerWidth > 700) {
+      linksContainerHeight = 0;
+      linksContainer.style.height = `0px`;
+      linksContainerHeight = 0;
+      toggleBtn.classList.remove("active");
+    }
+  });
 });
 
 // js for active links

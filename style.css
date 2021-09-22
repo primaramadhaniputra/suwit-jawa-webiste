@@ -4,7 +4,9 @@
   box-sizing: border-box;
   transform-origin: 0%;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 .nav-container {
   background-color: #333;
   transition: 1s;
@@ -95,7 +97,10 @@ header .btn-info button {
 }
 
 .header-container {
-  background-image: url("./image/1.png");
+  background: url("./image/1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   padding: 0rem 2rem;
 }
 
@@ -108,13 +113,38 @@ header .btn-info button {
 .btn-info button:active {
   border: 1px solid rgba(0, 0, 0, 0.2);
 }
+
+/* css for about */
+section#about {
+  height: 70vh;
+}
+.heading-about-container {
+  background-color: #333;
+  text-align: center;
+  padding: 1rem;
+  color: #eee;
+}
+.about-heading {
+  font-family: "Nova Square", cursive;
+  font-size: 3rem;
+  font-weight: 500;
+}
+
 /* responsive */
+@media (max-width: 400px) {
+  .about-heading {
+    font-size: 1rem;
+  }
+}
 @media (max-width: 700px) {
   header h1 {
     font-size: 2.5rem;
   }
   header .info {
     font-size: 1.1rem;
+  }
+  .about-heading {
+    font-size: 2.5rem;
   }
 }
 @media (min-width: 701px) {
