@@ -7,6 +7,8 @@
 
 .nav-container {
   background-color: #333;
+  transition: 1s;
+  transform: translateY(-90px);
 }
 
 nav {
@@ -39,7 +41,9 @@ nav {
   display: flex;
   justify-content: space-between;
 }
-
+.link .active-link {
+  text-decoration: underline;
+}
 .link {
   list-style: none;
 }
@@ -56,7 +60,63 @@ nav {
   color: #fff;
 }
 
+/* css for header */
+header {
+  height: 70vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 1000px;
+  margin: auto;
+}
+
+header h1 {
+  font-family: "Nova Square", cursive;
+  font-size: 3rem;
+  font-weight: 500;
+  padding: 2rem 0;
+  text-transform: capitalize;
+}
+header .info {
+  font-size: 1.3rem;
+  font-family: "Open Sans", sans-serif;
+  margin-bottom: 2rem;
+  font-weight: 500;
+  word-spacing: 0.7rem;
+}
+
+header .btn-info button {
+  padding: 0.3rem 0.7rem;
+  font-family: "Nova Square", cursive;
+  font-size: 1.2rem;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.header-container {
+  background-image: url("./image/1.png");
+  padding: 0rem 2rem;
+}
+
+.btn-info button {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+.btn-info button:hover {
+  border: 1px solid rgba(0, 0, 0, 0.6);
+}
+.btn-info button:active {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
 /* responsive */
+@media (max-width: 700px) {
+  header h1 {
+    font-size: 2.5rem;
+  }
+  header .info {
+    font-size: 1.1rem;
+  }
+}
 @media (min-width: 701px) {
   .links-container {
     height: auto !important;

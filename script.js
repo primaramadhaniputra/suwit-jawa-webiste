@@ -1,16 +1,20 @@
 // js for navbar
+
+const navContainer = document.querySelector(".nav-container");
+window.addEventListener("load", function () {
+  navContainer.style.transform = "translateY(0)";
+});
 // first js for toggle btn effects
 const toggleBtn = document.querySelector(".toggle-btn");
 
 // links
 const linksContainer = document.querySelector(".links-container");
-const links = document.querySelector(".links");
-
-let linksContainerHeight = linksContainer.getBoundingClientRect().height;
-let linksHeight = links.getBoundingClientRect().height;
+const link = document.querySelector(".links");
 
 // add event for toggle btn
 toggleBtn.addEventListener("click", function () {
+  let linksContainerHeight = linksContainer.getBoundingClientRect().height;
+  let linksHeight = link.getBoundingClientRect().height;
   if (this.classList.contains("active")) {
     this.classList.remove("active");
   } else {
@@ -24,4 +28,16 @@ toggleBtn.addEventListener("click", function () {
     linksContainer.style.height = `0px`;
     linksContainerHeight = 0;
   }
+});
+
+// js for active links
+const links = link.querySelectorAll("a");
+
+links.forEach((link) => {
+  link.addEventListener("click", function () {
+    links.forEach((item) => item.classList.remove("active-link"));
+    if (!this.classList.contains("active-link")) {
+      this.classList.add("active-link");
+    }
+  });
 });
