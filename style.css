@@ -55,6 +55,7 @@ nav {
   text-decoration: none;
   font-size: 1.1rem;
   font-weight: 500;
+  text-transform: capitalize;
 }
 
 .link a:hover {
@@ -115,9 +116,7 @@ header .btn-info button {
 }
 
 /* css for about */
-section#about {
-  height: 70vh;
-}
+
 .heading-about-container {
   background-color: #333;
   text-align: center;
@@ -129,11 +128,116 @@ section#about {
   font-size: 3rem;
   font-weight: 500;
 }
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  padding: 2rem 1rem;
+}
+.about-info {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+.about-info .info {
+  font-size: 1.1rem;
+  font-family: "Open Sans", sans-serif;
+}
+.about-image {
+  flex: 1;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+}
+.about-image img {
+  width: 100%;
+}
 
+/* css for how to play */
+
+.heading-howtoplay-container {
+  background-color: #333;
+  text-align: center;
+  padding: 1rem;
+  color: #eee;
+}
+.howtoplay-heading {
+  font-family: "Nova Square", cursive;
+  font-size: 3rem;
+  font-weight: 500;
+}
+.howtoplay-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+.howtoplay-image {
+  text-align: center;
+}
+.howtoplay-image img {
+  width: 60%;
+}
+.howtoplay-info-container {
+  display: flex;
+}
+.howtoplay-info-container .info-1 {
+  font-size: 1.2rem;
+  font-family: "Open Sans", sans-serif;
+  margin: 0 1rem;
+  font-weight: 500;
+}
+
+/* css for play */
+#play {
+  margin-top: 3rem;
+}
+.play-container {
+  background-color: #333;
+  text-align: center;
+  padding: 1rem;
+  color: #eee;
+}
+.play-heading {
+  font-family: "Nova Square", cursive;
+  font-size: 3rem;
+  font-weight: 500;
+}
 /* responsive */
 @media (max-width: 400px) {
   .about-heading {
     font-size: 1rem;
+  }
+}
+
+@media (max-width: 650px) {
+  .about-container {
+    flex-direction: column;
+  }
+  .howtoplay-info-container .info-1 {
+    font-size: 1rem;
+  }
+  .about-info .info {
+    font-size: 1rem;
+  }
+
+  .howtoplay-content .howtoplay-image img {
+    width: 100%;
+  }
+  .about-container.satu {
+    flex-direction: column-reverse;
+  }
+}
+@media (max-width: 800px) {
+  .howtoplay-image img {
+    width: 80%;
+  }
+  .howtoplay-info-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .howtoplay-info-container .info-1 {
+    margin: 1rem;
   }
 }
 @media (max-width: 700px) {
@@ -144,6 +248,12 @@ section#about {
     font-size: 1.1rem;
   }
   .about-heading {
+    font-size: 2.5rem;
+  }
+  .howtoplay-heading {
+    font-size: 2.5rem;
+  }
+  .play-heading {
     font-size: 2.5rem;
   }
 }
