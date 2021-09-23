@@ -202,9 +202,30 @@ header .btn-info button {
   font-size: 3rem;
   font-weight: 500;
 }
+#play {
+  height: 70vh;
+}
+
+.footer-container {
+  height: 100px;
+  width: 100%;
+  background-color: #000;
+  color: white;
+}
+
+.footer-container .date {
+  font-size: 1.5rem;
+  font-family: "Nova Square", cursive;
+  font-weight: bolder;
+  color: white;
+  text-align: center;
+}
 /* responsive */
 @media (max-width: 400px) {
   .about-heading {
+    font-size: 1rem;
+  }
+  footer .footer-container .date {
     font-size: 1rem;
   }
 }
@@ -218,6 +239,12 @@ header .btn-info button {
   }
   .about-info .info {
     font-size: 1rem;
+  }
+  header .text-info .info {
+    font-size: 1rem;
+  }
+  .footer-container .date {
+    font-size: 1.3rem;
   }
 
   .howtoplay-content .howtoplay-image img {
