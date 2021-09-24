@@ -7,10 +7,12 @@ let navHeight = navContainer.getBoundingClientRect().height;
 window.addEventListener("scroll", function () {
   if (this.scrollY > navHeight * 2) {
     navContainer.style.position = "fixed";
-    navContainer.style.animation = "muncul 1s";
+    navContainer.style.animation = "muncul .3s";
+    navContainer.classList.add("fixed");
   } else {
     navContainer.style.position = "initial";
     navContainer.style.animation = "";
+    navContainer.classList.remove("fixed");
   }
 });
 
@@ -47,15 +49,36 @@ toggleBtn.addEventListener("click", function () {
     }
   });
 });
-
+let navContainerHeight = navContainer.getBoundingClientRect().height;
 // js for active links
 const links = link.querySelectorAll("a");
 
 links.forEach((link) => {
-  link.addEventListener("click", function () {
+  link.addEventListener("click", function (e) {
+    e.preventDefault();
     links.forEach((item) => item.classList.remove("active-link"));
     if (!this.classList.contains("active-link")) {
       this.classList.add("active-link");
     }
+
+    // js for scroll link
+    let linkId = this.getAttribute("href").slice(1);
+    let pageScroll = document.querySelector(`#${linkId}`);
+    let navHeight = navContainer.getBoundingClientRect().height;
+    // remove clas for toggle btn
+    if (toggleBtn.classList.contains("active") && navContainer.classList.contains("fixed")) {
+      navHeight = navContainerHeight;
+      linksContainer.style.height = `0px`;
+    } else if (toggleBtn.classList.contains("active") && !navContainer.classList.contains("fixed")) {
+      navHeight = navHeight + navContainerHeight;
+      linksContainer.style.height = `0px`;
+      console.log(navHeight);
+    }
+    let pageScrollHeight = pageScroll.offsetTop;
+    if (!navContainer.classList.contains("fixed") && !toggleBtn.classList.contains("active")) {
+      navHeight += navHeight;
+    }
+    toggleBtn.classList.remove("active");
+    window.scrollTo(0, pageScrollHeight - navHeight);
   });
 });
