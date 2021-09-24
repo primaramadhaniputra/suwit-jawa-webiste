@@ -1,9 +1,19 @@
-// js for navbar
-
 const navContainer = document.querySelector(".nav-container");
 window.addEventListener("load", function () {
   navContainer.style.transform = "translateY(0)";
 });
+let navHeight = navContainer.getBoundingClientRect().height;
+// js for fixed nav
+window.addEventListener("scroll", function () {
+  if (this.scrollY > navHeight * 2) {
+    navContainer.style.position = "fixed";
+    navContainer.style.animation = "muncul 1s";
+  } else {
+    navContainer.style.position = "initial";
+    navContainer.style.animation = "";
+  }
+});
+
 // first js for toggle btn effects
 const toggleBtn = document.querySelector(".toggle-btn");
 
