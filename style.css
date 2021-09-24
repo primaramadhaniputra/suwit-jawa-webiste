@@ -221,6 +221,22 @@ header .btn-info button {
   color: white;
   text-align: center;
 }
+
+/* css back to top */
+.back-to-top {
+  position: fixed;
+  width: 100px;
+  height: 100px;
+  bottom: 0;
+  right: 0;
+  visibility: hidden;
+}
+.back-to-top i {
+  font-size: 2rem;
+  color: rgb(109, 109, 199);
+  animation: bounce 1s infinite;
+  cursor: pointer;
+}
 /* responsive */
 @media (max-width: 400px) {
   .about-heading {
@@ -354,6 +370,21 @@ header .btn-info button {
   }
   100% {
     opacity: 1;
+    transform: scale(1);
+    transform-origin: center;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+    transform-origin: center;
+  }
+  50% {
+    transform: scale(0.3);
+    transform-origin: center;
+  }
+  100% {
     transform: scale(1);
     transform-origin: center;
   }

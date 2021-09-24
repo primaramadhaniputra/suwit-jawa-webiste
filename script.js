@@ -82,3 +82,15 @@ links.forEach((link) => {
     window.scrollTo(0, pageScrollHeight - navHeight);
   });
 });
+// js for back to top
+const backToTop = document.querySelector(".back-to-top");
+window.addEventListener("scroll", function () {
+  if (this.scrollY > 700) {
+    backToTop.style.visibility = "visible";
+  } else {
+    backToTop.style.visibility = "hidden";
+  }
+  backToTop.addEventListener("click", function () {
+    window.scrollTo(0, 0);
+  });
+});
