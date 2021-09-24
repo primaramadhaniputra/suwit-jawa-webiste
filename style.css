@@ -205,8 +205,48 @@ header .btn-info button {
 }
 #play {
   height: 100vh;
+  overflow: hidden;
 }
 
+.game-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.computer-image-container {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.computer-image-container img {
+  height: 200px;
+  cursor: pointer;
+  padding: 1rem;
+}
+
+.player-image-container {
+  display: flex;
+  flex: 2;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+.player-image-container img {
+  height: 200px;
+  cursor: pointer;
+  padding: 1rem;
+}
+.computer-image-container img:active,
+.player-image-container img:active {
+  border: 1px solid black;
+}
+/* footer */
 .footer-container {
   height: 100px;
   width: 100%;
@@ -239,6 +279,15 @@ header .btn-info button {
 }
 /* responsive */
 @media (max-width: 400px) {
+  #play .player-image-container {
+    margin-top: 2rem;
+  }
+  #play .player-image-container img {
+    height: 130px;
+  }
+  #play .computer-image-container img {
+    height: 130px;
+  }
   .about-heading {
     font-size: 1rem;
   }
@@ -248,6 +297,23 @@ header .btn-info button {
 }
 
 @media (max-width: 650px) {
+  .computer-image-container {
+    align-items: flex-end;
+  }
+  .player-image-container {
+    margin-top: 5rem;
+  }
+  .player-image-container img {
+    height: 170px;
+  }
+  .computer-image-container img {
+    height: 170px;
+  }
+  .game-container {
+    transform-origin: 50%;
+    transform: rotate(-90deg);
+  }
+
   .about-container {
     flex-direction: column;
   }
