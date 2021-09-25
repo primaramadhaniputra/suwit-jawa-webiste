@@ -94,3 +94,86 @@ window.addEventListener("scroll", function () {
     window.scrollTo(0, 0);
   });
 });
+
+// js for suwit jawa
+const result = ["jempol", "jaritengah", "kelingking"];
+
+// get computer image and all players image
+const computerImage = document.querySelector(".computer-image");
+const playerImage = document.querySelectorAll(".player-image");
+
+// make result computer and player result
+let computerResult = "";
+let playerResult = "";
+let play = true;
+let count = 0;
+let time = 300;
+// add event listener to player image
+playerImage.forEach((pImg) => {
+  pImg.addEventListener("click", function () {
+    if (play) {
+      play = false;
+      // this line for the computer result
+      checkResultComputer();
+      // this line for the result player
+      checkResultPlayer(this);
+      // this line function for computer animation
+      computerAnimation(computerImage);
+    }
+  });
+});
+
+function checkResultComputer() {
+  // this line for the computer result
+  let randomComputer = Math.floor(Math.random() * 3);
+  computerResult = result[randomComputer];
+}
+
+function checkResultPlayer(that) {
+  playerResult = that.getAttribute("src").split("/").join(" ");
+  playerResult = playerResult.split(".").join(" ");
+  playerResult = playerResult.split(" ");
+  playerResult = result.find((item) => item == playerResult[3]);
+}
+
+function computerAnimation(compImg) {
+  const animation = setInterval(() => {
+    if (count > 2) count = 0;
+    compImg.src = `image/${result[count]}.png`;
+    count++;
+    time += 300;
+    if (time == 3000) {
+      compImg.src = `image/${computerResult}.png`;
+      time = 300;
+      clearInterval(animation);
+      setTimeout(() => {
+        resultGame();
+      }, 300);
+    }
+  }, time);
+}
+
+function resultGame() {
+  if (playerResult == computerResult) {
+    alert(`anda memilih ${playerResult} dan komputer memilih ${computerResult} maka hasil imbang`);
+  } else if (playerResult == "jempol") {
+    if (computerResult == "telunjuk") {
+      alert(`anda memilih ${playerResult} dan komputer memilih ${computerResult} maka hasil anda menang`);
+    } else {
+      alert(`anda memilih ${playerResult} dan komputer memilih ${computerResult} maka hasil anda kalah`);
+    }
+  } else if (playerResult == "telunjuk") {
+    if (computerResult == "kelingking") {
+      alert(`anda memilih ${playerResult} dan komputer memilih ${computerResult} maka hasil anda menang`);
+    } else {
+      alert(`anda memilih ${playerResult} dan komputer memilih ${computerResult} maka hasil anda kalah`);
+    }
+  } else if (playerResult == "kelingking") {
+    if (computerResult == "jempol") {
+      alert(`anda memilih ${playerResult} dan komputer memilih ${computerResult} maka hasil anda menang`);
+    } else {
+      alert(`anda memilih ${playerResult} dan komputer memilih ${computerResult} maka hasil anda kalah`);
+    }
+  }
+  play = true;
+}
